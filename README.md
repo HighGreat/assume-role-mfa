@@ -7,13 +7,9 @@ $ go get https://github.com/HighGreat/assume-role-mfa
 
 ### Prepare aws configuration
 ```
-[default]
-aws_access_key_id = ***     # Credentials.AccessKeyId
-aws_secret_access_key = *** # Credentials.SecretAccessKey
-aws_session_token = ***     # Credentials.SessionToken
-mfa_serial = arn:aws:iam::***:mfa/***
+...
 
-[profile ***]
+[profile example-config]
 source_profile = default
 role_arn = arn:aws:iam::***:role/***
 mfa_serial = arn:aws:iam::***:mfa/***
@@ -21,6 +17,6 @@ mfa_serial = arn:aws:iam::***:mfa/***
 
 ### Run command
 ```
-$ assume-role-mfa --profile *** --duration $((60*60)) --session_name ***
-$ export AWS_PROFILE=***
+$ AWS_PROFILE=default assume-role-mfa --profile example --duration $((60*60)) --session_name john
+$ export AWS_PROFILE=example
 ```
