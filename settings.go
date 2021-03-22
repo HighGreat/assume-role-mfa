@@ -15,7 +15,7 @@ func loadAwsConfig(config_file_path string, profile string) (*AwsConfig, error) 
 		return nil, err
 	}
 
-	section := config.Section("profile " + profile)
+	section := config.Section("profile " + profile + "-config")
 
 	return &AwsConfig{
 		RoleArn:   section.Key("role_arn").Value(),
